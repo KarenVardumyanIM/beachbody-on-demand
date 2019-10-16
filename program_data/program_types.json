@@ -1,0 +1,235 @@
+{
+    "programType": [
+      {
+        "id": "cardio",
+        "title": "Cardio",
+        "count": 39,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Cardio_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Cardio_Icon.png",
+              "file": "2018/04/BOD_Cardio_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Cardio_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Cardio_Icon.png",
+              "file": "2018/04/BOD_Cardio_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Cardio_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Cardio_Icon.png",
+              "file": "2018/04/BOD_Cardio_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "slim-and-tone",
+        "title": "Slim and Tone",
+        "count": 36,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_SlimTone_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_SlimTone_Icon.png",
+              "file": "2018/04/BOD_SlimTone_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_SlimTone_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_SlimTone_Icon.png",
+              "file": "2018/04/BOD_SlimTone_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_SlimTone_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_SlimTone_Icon.png",
+              "file": "2018/04/BOD_SlimTone_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "muscle-building",
+        "title": "Muscle Building",
+        "count": 25,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_MuscleBuilding_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_MuscleBuilding_Icon.png",
+              "file": "2018/04/BOD_MuscleBuilding_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_MuscleBuilding_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_MuscleBuilding_Icon.png",
+              "file": "2018/04/BOD_MuscleBuilding_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_MuscleBuilding_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_MuscleBuilding_Icon.png",
+              "file": "2018/04/BOD_MuscleBuilding_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "low-impact",
+        "title": "Low Impact",
+        "count": 16,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_LowImpact_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_LowImpact_Icon.png",
+              "file": "2018/04/BOD_LowImpact_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_LowImpact_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_LowImpact_Icon.png",
+              "file": "2018/04/BOD_LowImpact_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_LowImpact_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_LowImpact_Icon.png",
+              "file": "2018/04/BOD_LowImpact_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "dance",
+        "title": "Dance",
+        "count": 11,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Dance_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Dance_Icon.png",
+              "file": "2018/04/BOD_Dance_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Dance_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Dance_Icon.png",
+              "file": "2018/04/BOD_Dance_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Dance_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Dance_Icon.png",
+              "file": "2018/04/BOD_Dance_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "kids-family",
+        "title": "Kids and Family",
+        "count": 9,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2017/08/BOD_KidsFamily_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2017/08/BOD_KidsFamily_Icon.png",
+              "file": "2017/08/BOD_KidsFamily_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2017/08/BOD_KidsFamily_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2017/08/BOD_KidsFamily_Icon.png",
+              "file": "2017/08/BOD_KidsFamily_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2017/08/BOD_KidsFamily_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2017/08/BOD_KidsFamily_Icon.png",
+              "file": "2017/08/BOD_KidsFamily_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "yoga",
+        "title": "Yoga",
+        "count": 8,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Yoga_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Yoga_Icon.png",
+              "file": "2018/04/BOD_Yoga_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Yoga_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Yoga_Icon.png",
+              "file": "2018/04/BOD_Yoga_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Yoga_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Yoga_Icon.png",
+              "file": "2018/04/BOD_Yoga_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      }
+    ]
+  }

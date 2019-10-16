@@ -1,0 +1,169 @@
+{
+    "workoutLevels": [
+      {
+        "id": "beginner-intermediate",
+        "title": "Beginner Intermediate",
+        "count": 20,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Begginer_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Begginer_Icon.png",
+              "file": "2018/04/BOD_Begginer_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Begginer_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Begginer_Icon.png",
+              "file": "2018/04/BOD_Begginer_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Begginer_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Begginer_Icon.png",
+              "file": "2018/04/BOD_Begginer_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "intermediate-advanced",
+        "title": "Intermediate Advanced",
+        "count": 15,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Intermediate-Adv_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Intermediate-Adv_Icon.png",
+              "file": "2018/04/BOD_Intermediate-Adv_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Intermediate-Adv_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Intermediate-Adv_Icon.png",
+              "file": "2018/04/BOD_Intermediate-Adv_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Intermediate-Adv_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Intermediate-Adv_Icon.png",
+              "file": "2018/04/BOD_Intermediate-Adv_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "beginner",
+        "title": "Beginner",
+        "count": 13,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/05/BOD_Begginer_Icon1.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/05/BOD_Begginer_Icon1.png",
+              "file": "2018/05/BOD_Begginer_Icon1.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/05/BOD_Begginer_Icon1.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/05/BOD_Begginer_Icon1.png",
+              "file": "2018/05/BOD_Begginer_Icon1.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/05/BOD_Begginer_Icon1.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/05/BOD_Begginer_Icon1.png",
+              "file": "2018/05/BOD_Begginer_Icon1.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "count": 12,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Advance_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Advance_Icon.png",
+              "file": "2018/04/BOD_Advance_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Advance_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Advance_Icon.png",
+              "file": "2018/04/BOD_Advance_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Advance_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_Advance_Icon.png",
+              "file": "2018/04/BOD_Advance_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "count": 5,
+        "images": {
+          "web": {
+            "desktop": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_BegginerInter_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_BegginerInter_Icon.png",
+              "file": "2018/04/BOD_BegginerInter_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "mobile": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_BegginerInter_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_BegginerInter_Icon.png",
+              "file": "2018/04/BOD_BegginerInter_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            },
+            "tablet": {
+              "url": "//d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_BegginerInter_Icon.png",
+              "sourceUrl": "https://d2rxohj08n82d5.cloudfront.net/wp-content/uploads/2018/04/BOD_BegginerInter_Icon.png",
+              "file": "2018/04/BOD_BegginerInter_Icon.png",
+              "width": 90,
+              "height": 60,
+              "mimeType": "image/png"
+            }
+          }
+        }
+      }
+    ]
+  }

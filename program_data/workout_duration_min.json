@@ -1,0 +1,100 @@
+{
+    "workoutDurationMinimum": [
+      {
+        "id": "30",
+        "title": "30",
+        "count": 18,
+        "images": null
+      },
+      {
+        "id": "20",
+        "title": "20",
+        "count": 10,
+        "images": null
+      },
+      {
+        "id": "25",
+        "title": "25",
+        "count": 7,
+        "images": null
+      },
+      {
+        "id": "10",
+        "title": "10",
+        "count": 6,
+        "images": null
+      },
+      {
+        "id": "15",
+        "title": "15",
+        "count": 4,
+        "images": null
+      },
+      {
+        "id": "45",
+        "title": "45",
+        "count": 4,
+        "images": null
+      },
+      {
+        "id": "5",
+        "title": "5",
+        "count": 4,
+        "images": null
+      },
+      {
+        "id": "0",
+        "title": "0",
+        "count": 3,
+        "images": null
+      },
+      {
+        "id": "27",
+        "title": "27",
+        "count": 2,
+        "images": null
+      },
+      {
+        "id": "14",
+        "title": "14",
+        "count": 1,
+        "images": null
+      },
+      {
+        "id": "11",
+        "title": "11",
+        "count": 1,
+        "images": null
+      },
+      {
+        "id": "22",
+        "title": "22",
+        "count": 1,
+        "images": null
+      },
+      {
+        "id": "18",
+        "title": "18",
+        "count": 1,
+        "images": null
+      },
+      {
+        "id": "7",
+        "title": "7",
+        "count": 1,
+        "images": null
+      },
+      {
+        "id": "50",
+        "title": "50",
+        "count": 1,
+        "images": null
+      },
+      {
+        "id": "4",
+        "title": "4",
+        "count": 1,
+        "images": null
+      }
+    ]
+  }
