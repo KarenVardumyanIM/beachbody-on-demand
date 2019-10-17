@@ -1,0 +1,10 @@
+{
+    "prod": {
+        "port": 5000,
+        "graphiql": false
+    },
+    "dev" : {
+        "port": 5001,
+        "graphiql": true        
+    }
+}

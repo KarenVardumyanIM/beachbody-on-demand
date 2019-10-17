@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "start-dev": "nodemon src/index-dev.js",
     "format": "prettier --write \"src/**/*.{js, jsx}\"",
     "format:check": "prettier --list-different \"src/**/*.{js, jsx}\""
   },
