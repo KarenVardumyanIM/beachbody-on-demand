@@ -48,6 +48,12 @@ itemType = new GraphQLObjectType({
   fields: {
     title: { type: GraphQLString },
     shortDescription: { type: shortDescriptionType },
+    mainImage: { 
+      type: webImagesType,
+      resolve(source) {
+        return source.images.main.web;
+      }
+     },
     programIntensity: {
       type: webImagesType,
       resolve(source) {
