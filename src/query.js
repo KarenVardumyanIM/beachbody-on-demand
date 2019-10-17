@@ -18,11 +18,7 @@ const Query = new GraphQLObjectType({
           return items;
         }
         return (function(args , items) {
-          return items.filter(function(obj) {
-            return obj.workoutType.some(function(type){
-              return type.title == args.workoutType;
-            });
-          })
+          return items.filter(item => item.workoutType.some(type => type.title == args.workoutType));
         })(args, items);
       }
     }
