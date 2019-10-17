@@ -12,7 +12,8 @@ const Query = new GraphQLObjectType({
       type: itemList,
       args: {
         workoutTypes: { type: new GraphQLList(GraphQLString) },
-        trainers: { type: new GraphQLList(GraphQLString) }
+        trainers: { type: new GraphQLList(GraphQLString) },
+        programIntensity : { type: new GraphQLList(GraphQLString) }
       },
       resolve: function(source, args) {
         return (function(args, items) {
@@ -25,6 +26,12 @@ const Query = new GraphQLObjectType({
           }).filter(function(item) {
             if(args.trainers != undefined) {
               return item.trainers.some(trainer => args.trainers.includes(trainer.title));
+            } else {
+              return item;
+            }
+          }).filter(function(item){
+            if(args.programIntensity != undefined) {
+              return args.programIntensity.includes(item.programIntensity.title);
             } else {
               return item;
             }
