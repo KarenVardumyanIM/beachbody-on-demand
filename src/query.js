@@ -18,19 +18,19 @@ const Query = new GraphQLObjectType({
       resolve: function(source, args) {
         return (function(args, items) {
           return items.filter(function(item) {
-            if(args.workoutTypes != undefined) {
+            if(args.workoutTypes !== undefined) {
               return item.workoutType.some(type => args.workoutTypes.includes(type.title));
             } else {
               return item;
             }
           }).filter(function(item) {
-            if(args.trainers != undefined) {
+            if(args.trainers !== undefined) {
               return item.trainers.some(trainer => args.trainers.includes(trainer.title));
             } else {
               return item;
             }
           }).filter(function(item){
-            if(args.programIntensity != undefined) {
+            if(args.programIntensity !== undefined) {
               return args.programIntensity.includes(item.programIntensity.title);
             } else {
               return item;

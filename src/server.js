@@ -8,7 +8,6 @@ const cors = require('cors');
 const configs = require('../env-configs.json');
 
 //setting up the port number and express app
-const port = configs.prod.port;
 const app = express();
 
 // Define the Schema
@@ -21,9 +20,9 @@ app.use(cors());
 //Setup the nodejs GraphQL server
 app.use('/', graphqlHTTP({
     schema: schema,
-    graphiql: configs.prod.graphiql
+    graphiql: configs.app.graphiql
   })
 );
 
-app.listen(port);
-log.info(`Server Running at localhost:${port}`);
+app.listen(configs.app.port);
+log.info(`Server Running at localhost:${configs.app.port}`);
