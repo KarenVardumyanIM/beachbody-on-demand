@@ -21,11 +21,25 @@ workoutType = new GraphQLObjectType({
   }
 });
 
+trainerType = new GraphQLObjectType({
+  name: 'trainersType',
+  fields: {
+    slug: { type: GraphQLString },
+    title: { type: GraphQLString }
+  }
+});
+
 itemType = new GraphQLObjectType({
   name: 'itemType',
   fields: {
     title: { type: GraphQLString },
-    shortDescription: { type: shortDescriptionType }
+    shortDescription: { type: shortDescriptionType },
+    trainers: {
+      type: new GraphQLList(trainerType),
+      resolve(source) {
+        return source.trainers;
+      }
+    }
   }
 });
 
