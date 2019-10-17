@@ -21,11 +21,28 @@
 
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can run the following scripts:
 
-### `npm start`
+### Production mode
+
+#### `npm run start`
+
+Runs the server in the production mode.<br>
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
+
+### Development mode
+
+#### `npm run start-dev`
 
 Runs the server in the development mode.<br>
-Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
+Open [http://localhost:5001](http://localhost:5001) to view it in the browser.
+
+#### `npm run format:check`
+
+Checks source files code formatting and reports found issues.
+
+#### `npm run format`
+
+Enforces a consistent style by parsing source code and corrects it with its own rules that take the maximum line length into account, wrapping code when necessary.
 
 
