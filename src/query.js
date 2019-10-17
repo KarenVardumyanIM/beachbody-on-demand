@@ -14,6 +14,9 @@ const Query = new GraphQLObjectType({
         workoutType: { type: GraphQLString }
       },
       resolve: function(source, args) {
+        if(args.workoutType == undefined) {
+          return items;
+        }
         return (function(args , items) {
           return items.filter(function(obj) {
             return obj.workoutType.some(function(type){
