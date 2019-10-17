@@ -18,9 +18,7 @@ const schema = new GraphQLSchema({
 app.use(cors());
 
 //Setup the nodejs GraphQL server
-app.use(
-  "/",
-  graphqlHTTP({
+app.use("/", graphqlHTTP({
     schema: schema,
     graphiql: true
   })

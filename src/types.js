@@ -24,7 +24,6 @@ workoutType = new GraphQLObjectType({
 itemType = new GraphQLObjectType({
   name: "itemType",
   fields: {
-    workoutType : { type: workoutType },
     title: { type: GraphQLString },
     shortDescription: { type: shortDescriptionType }
   }
@@ -33,5 +32,3 @@ itemType = new GraphQLObjectType({
 itemList = new GraphQLList(itemType);
 
 exports.itemList = itemList;
-exports.workoutType = workoutType;
-exports.itemType = itemType;
