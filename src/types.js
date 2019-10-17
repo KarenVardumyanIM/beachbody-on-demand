@@ -1,6 +1,7 @@
 const {
   GraphQLObjectType,
   GraphQLString,
+  GraphQLInt,
   GraphQLList
 } = require('graphql');
 
@@ -13,11 +14,24 @@ shortDescriptionType = new GraphQLObjectType({
   }
 });
 
-workoutType = new GraphQLObjectType({
-  name: 'workoutType',
+imgType = new GraphQLObjectType({
+  name: 'imgType',
   fields: {
-    id: { type: GraphQLString },
-    title: { type: GraphQLString }
+    url: { type: GraphQLString },    
+    sourceUrl: { type: GraphQLString },
+    file: { type: GraphQLString },
+    width: { type: GraphQLInt },
+    height: { type: GraphQLInt },
+    mimeType: { type: GraphQLString }
+  }
+});
+
+webImagesType = new GraphQLObjectType({
+  name: 'webImagesType',
+  fields: {
+    desktop: { type: imgType },
+    mobile: { type: imgType },
+    tablet: { type: imgType }
   }
 });
 
@@ -34,6 +48,12 @@ itemType = new GraphQLObjectType({
   fields: {
     title: { type: GraphQLString },
     shortDescription: { type: shortDescriptionType },
+    programIntensity: {
+      type: webImagesType,
+      resolve(source) {
+        return source.programIntensity.images.web;
+      }
+    },
     trainers: {
       type: new GraphQLList(trainerType),
       resolve(source) {
