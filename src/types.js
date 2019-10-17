@@ -2,11 +2,11 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLList
-} = require("graphql");
+} = require('graphql');
 
 //Define quries data types
 shortDescriptionType = new GraphQLObjectType({
-  name: "shortDescriptionType",
+  name: 'shortDescriptionType',
   fields: {
     rendered: { type: GraphQLString },
     raw: { type: GraphQLString }
@@ -14,7 +14,7 @@ shortDescriptionType = new GraphQLObjectType({
 });
 
 workoutType = new GraphQLObjectType({
-  name: "workoutType",
+  name: 'workoutType',
   fields: {
     id: { type: GraphQLString },
     title: { type: GraphQLString }
@@ -22,7 +22,7 @@ workoutType = new GraphQLObjectType({
 });
 
 itemType = new GraphQLObjectType({
-  name: "itemType",
+  name: 'itemType',
   fields: {
     title: { type: GraphQLString },
     shortDescription: { type: shortDescriptionType }

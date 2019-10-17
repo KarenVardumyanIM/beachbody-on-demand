@@ -1,13 +1,12 @@
-const { GraphQLObjectType, GraphQLString } = require("graphql");
-const { itemList } = require("./types.js");
+const { GraphQLObjectType, GraphQLString } = require('graphql');
+const { itemList } = require('./types.js');
 
-const allPrograms = require("../program_data/items.json");
+const allPrograms = require('../program_data/items.json');
 const items = allPrograms.items;
-
 
 //Define the Query
 const Query = new GraphQLObjectType({
-  name: "Query",
+  name: 'Query',
   fields: {
     allItems: {
       type: itemList,
