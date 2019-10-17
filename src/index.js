@@ -5,7 +5,7 @@ const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
 const { Query } = require('./query.js');
 const cors = require('cors');
-const configs = require('../configs.json');
+const configs = require('../env-configs.json');
 
 //setting up the port number and express app
 const port = configs.prod.port;
