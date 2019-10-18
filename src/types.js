@@ -46,11 +46,32 @@ trainerType = new GraphQLObjectType({
   }
 });
 
+programDurationType = new GraphQLObjectType({
+  name: 'programDurationType',
+  fields: {
+    id: { type: GraphQLString },
+    title: { type: GraphQLString },
+    images: {
+      type: webImagesType,
+      resolve(source) {
+        return source.images.web;
+      }
+    }
+  }
+});
+
 itemType = new GraphQLObjectType({
   name: 'itemType',
   fields: {
     title: { type: GraphQLString },
     shortDescription: { type: shortDescriptionType },
+    programDurationType: { type: GraphQLString },
+    programDuration: {
+      type: programDurationType,
+      resolve(source) {
+        return source.programDuration;
+      }
+    },
     mainImage: {
       type: webImagesType,
       resolve(source) {
