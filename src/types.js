@@ -76,23 +76,8 @@ itemList = new GraphQLList(itemType);
 
 // Define quries data types for Filters
 
-programTypeFilter = new GraphQLObjectType({
-  name: 'programTypeFilter',
-  fields: {
-    id: { type: GraphQLString },
-    title: { type: GraphQLString },
-    count: { type: GraphQLInt },
-    images: {
-      type: webImagesType,
-      resolve(source) {
-        return source.images.web;
-      }
-    }
-  }
-});
-
-trainerTypeFilter = new GraphQLObjectType({
-  name: 'trainerTypeFilter',
+filterItem = new GraphQLObjectType({
+  name: 'filterItem',
   fields: {
     id: { type: GraphQLString },
     title: { type: GraphQLString },
@@ -110,15 +95,21 @@ filters = new GraphQLObjectType({
   name: 'filters',
   fields: {
     programTypes: {
-      type: new GraphQLList(programTypeFilter),
+      type: new GraphQLList(filterItem),
       resolve(source) {
         return source.programType;
       }
     },
     trainers: {
-      type: new GraphQLList(trainerTypeFilter),
+      type: new GraphQLList(filterItem),
       resolve(source) {
         return source.trainer;
+      }
+    },
+    workoutLevels: {
+      type: new GraphQLList(filterItem),
+      resolve(source) {
+        return source.workoutLevels;
       }
     }
   }
