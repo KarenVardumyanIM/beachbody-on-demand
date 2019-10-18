@@ -111,6 +111,18 @@ filtersList = new GraphQLObjectType({
       resolve(source) {
         return source.workoutLevels;
       }
+    },
+    workoutDurationMaximum: {
+      type: new GraphQLList(filterItem),
+      resolve(source) {
+        return source.workoutDurationMaximum;
+      }
+    },
+    workoutDurationMinimum: {
+      type: new GraphQLList(filterItem),
+      resolve(source) {
+        return source.workoutDurationMinimum;
+      }
     }
   }
 });
