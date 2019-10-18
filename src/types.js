@@ -7,8 +7,8 @@ const {
 
 //Define common data types
 
-imgType = new GraphQLObjectType({
-  name: 'imgType',
+_imgType = new GraphQLObjectType({
+  name: '_imgType',
   fields: {
     url: { type: GraphQLString },
     sourceUrl: { type: GraphQLString },
@@ -19,26 +19,26 @@ imgType = new GraphQLObjectType({
   }
 });
 
-webImagesType = new GraphQLObjectType({
-  name: 'webImagesType',
+_webImagesType = new GraphQLObjectType({
+  name: '_webImagesType',
   fields: {
-    desktop: { type: imgType },
-    mobile: { type: imgType },
-    tablet: { type: imgType }
+    desktop: { type: _imgType },
+    mobile: { type: _imgType },
+    tablet: { type: _imgType }
   }
 });
 
 //Define quries data types for Items
 
-shortDescriptionType = new GraphQLObjectType({
-  name: 'shortDescriptionType',
+_shortDescriptionType = new GraphQLObjectType({
+  name: '_shortDescriptionType',
   fields: {
     rendered: { type: GraphQLString },
     raw: { type: GraphQLString }
   }
 });
 
-trainerType = new GraphQLObjectType({
+_trainerType = new GraphQLObjectType({
   name: 'trainersType',
   fields: {
     slug: { type: GraphQLString },
@@ -46,13 +46,13 @@ trainerType = new GraphQLObjectType({
   }
 });
 
-programDurationType = new GraphQLObjectType({
-  name: 'programDurationType',
+_programDurationType = new GraphQLObjectType({
+  name: '_programDurationType',
   fields: {
     id: { type: GraphQLString },
     title: { type: GraphQLString },
     images: {
-      type: webImagesType,
+      type: _webImagesType,
       resolve(source) {
         return source.images.web;
       }
@@ -60,32 +60,32 @@ programDurationType = new GraphQLObjectType({
   }
 });
 
-itemType = new GraphQLObjectType({
-  name: 'itemType',
+_itemType = new GraphQLObjectType({
+  name: '_itemType',
   fields: {
     title: { type: GraphQLString },
-    shortDescription: { type: shortDescriptionType },
+    shortDescription: { type: _shortDescriptionType },
     programDurationType: { type: GraphQLString },
     programDuration: {
-      type: programDurationType,
+      type: _programDurationType,
       resolve(source) {
         return source.programDuration;
       }
     },
     mainImage: {
-      type: webImagesType,
+      type: _webImagesType,
       resolve(source) {
         return source.images.main.web;
       }
      },
     programIntensity: {
-      type: webImagesType,
+      type: _webImagesType,
       resolve(source) {
         return source.programIntensity.images.web;
       }
     },
     trainers: {
-      type: new GraphQLList(trainerType),
+      type: new GraphQLList(_trainerType),
       resolve(source) {
         return source.trainers;
       }
@@ -93,18 +93,18 @@ itemType = new GraphQLObjectType({
   }
 });
 
-itemsList = new GraphQLList(itemType);
+_itemsList = new GraphQLList(_itemType);
 
 // Define quries data types for Filters
 
-filterItem = new GraphQLObjectType({
-  name: 'filterItem',
+_filterItemType = new GraphQLObjectType({
+  name: '_filterItemType',
   fields: {
     id: { type: GraphQLString },
     title: { type: GraphQLString },
     count: { type: GraphQLInt },
     images: {
-      type: webImagesType,
+      type: _webImagesType,
       resolve(source) {
         return source.images.web;
       }
@@ -112,35 +112,35 @@ filterItem = new GraphQLObjectType({
   }
 });
 
-filtersList = new GraphQLObjectType({
-  name: 'filtersList',
+_filtersList = new GraphQLObjectType({
+  name: '_filtersList',
   fields: {
     programTypes: {
-      type: new GraphQLList(filterItem),
+      type: new GraphQLList(_filterItemType),
       resolve(source) {
         return source.programType;
       }
     },
     trainers: {
-      type: new GraphQLList(filterItem),
+      type: new GraphQLList(_filterItemType),
       resolve(source) {
         return source.trainer;
       }
     },
     workoutLevels: {
-      type: new GraphQLList(filterItem),
+      type: new GraphQLList(_filterItemType),
       resolve(source) {
         return source.workoutLevels;
       }
     },
     workoutDurationMaximum: {
-      type: new GraphQLList(filterItem),
+      type: new GraphQLList(_filterItemType),
       resolve(source) {
         return source.workoutDurationMaximum;
       }
     },
     workoutDurationMinimum: {
-      type: new GraphQLList(filterItem),
+      type: new GraphQLList(_filterItemType),
       resolve(source) {
         return source.workoutDurationMinimum;
       }
@@ -148,6 +148,6 @@ filtersList = new GraphQLObjectType({
   }
 });
 
-exports.itemsList = itemsList;
-exports.filtersList = filtersList;
+exports._itemsList = _itemsList;
+exports._filtersList = _filtersList;
 

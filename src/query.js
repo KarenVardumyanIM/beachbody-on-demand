@@ -1,5 +1,5 @@
 const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
-const { itemsList, filtersList } = require('./types.js');
+const { _itemsList, _filtersList } = require('./types.js');
 
 const allFiltersData = require('../program_data/filters.json');
 const allProgramsData = require('../program_data/items.json');
@@ -10,7 +10,7 @@ const Query = new GraphQLObjectType({
   name: 'Query',
   fields: {
     allItems: {
-      type: itemsList,
+      type: _itemsList,
       args: {
         workoutTypes: { type: new GraphQLList(GraphQLString) },
         trainers: { type: new GraphQLList(GraphQLString) },
@@ -41,7 +41,7 @@ const Query = new GraphQLObjectType({
       }
     },
     allFilters: {
-      type: filtersList,
+      type: _filtersList,
       resolve() {
         return allFiltersData;
       }
