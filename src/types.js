@@ -5,15 +5,7 @@ const {
   GraphQLList
 } = require('graphql');
 
-//Define quries data types for Items
-
-shortDescriptionType = new GraphQLObjectType({
-  name: 'shortDescriptionType',
-  fields: {
-    rendered: { type: GraphQLString },
-    raw: { type: GraphQLString }
-  }
-});
+//Define common data types
 
 imgType = new GraphQLObjectType({
   name: 'imgType',
@@ -33,6 +25,16 @@ webImagesType = new GraphQLObjectType({
     desktop: { type: imgType },
     mobile: { type: imgType },
     tablet: { type: imgType }
+  }
+});
+
+//Define quries data types for Items
+
+shortDescriptionType = new GraphQLObjectType({
+  name: 'shortDescriptionType',
+  fields: {
+    rendered: { type: GraphQLString },
+    raw: { type: GraphQLString }
   }
 });
 
