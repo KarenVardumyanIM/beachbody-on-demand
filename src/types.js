@@ -63,13 +63,14 @@ _programDurationType = new GraphQLObjectType({
 _itemType = new GraphQLObjectType({
   name: '_itemType',
   fields: {
+    brandCode: { type: GraphQLString },
     title: { type: GraphQLString },
     shortDescription: { type: _shortDescriptionType },
     programDurationType: { type: GraphQLString },
     programDuration: {
       type: _programDurationType,
       resolve(source) {
-        return source.programDuration;
+        return source.workoutDurationMaximum;
       }
     },
     workoutDurationMaximum: {
