@@ -72,7 +72,7 @@ itemType = new GraphQLObjectType({
   }
 });
 
-itemList = new GraphQLList(itemType);
+itemsList = new GraphQLList(itemType);
 
 // Define quries data types for Filters
 
@@ -91,8 +91,8 @@ filterItem = new GraphQLObjectType({
   }
 });
 
-filters = new GraphQLObjectType({
-  name: 'filters',
+filtersList = new GraphQLObjectType({
+  name: 'filtersList',
   fields: {
     programTypes: {
       type: new GraphQLList(filterItem),
@@ -115,6 +115,6 @@ filters = new GraphQLObjectType({
   }
 });
 
-exports.itemList = itemList;
-exports.filters = filters;
+exports.itemsList = itemsList;
+exports.filtersList = filtersList;
 
