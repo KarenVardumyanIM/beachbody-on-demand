@@ -39,8 +39,8 @@ const Query = new GraphQLObjectType({
             }
           }).filter(function(item){
             if(args.time !== undefined) {
-              return args.time.some(t => !(t[0] > +item.workoutDurationMaximum.id ||
-                                           t[1] < +item.workoutDurationMinimum.id));
+              return args.time.some(t => !(time[0] > +item.workoutDurationMaximum.id ||
+                                           time[1] < +item.workoutDurationMinimum.id));
             } else {
               return item;
             }
