@@ -72,6 +72,12 @@ _itemType = new GraphQLObjectType({
         return source.programDuration;
       }
     },
+    workoutDurationMaximum: {
+      type: _programDurationType,
+      resolve(source) {
+        return source.workoutDurationMaximum;
+      }
+    },
     mainImage: {
       type: _webImagesType,
       resolve(source) {
@@ -133,16 +139,10 @@ _filtersList = new GraphQLObjectType({
         return source.workoutLevels;
       }
     },
-    workoutDurationMaximum: {
+    time: {
       type: new GraphQLList(_filterItemType),
       resolve(source) {
-        return source.workoutDurationMaximum;
-      }
-    },
-    workoutDurationMinimum: {
-      type: new GraphQLList(_filterItemType),
-      resolve(source) {
-        return source.workoutDurationMinimum;
+        return source.time;
       }
     }
   }
