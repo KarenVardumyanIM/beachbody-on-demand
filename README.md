@@ -15,7 +15,7 @@
 └── src
     ├── server.js --> is the JavaScript entry point
     ├── query.js --> queries (analog of API endpoint) of the project (/programs, /programs?programtype=, /proograms?trainer=)
-    └── types.js --> data types of the queries with all required properties     
+    └── types.js --> data types of the queries with all required properties
 ```
 
 ## Available Scripts

@@ -10,7 +10,7 @@ const {
 imgType = new GraphQLObjectType({
   name: 'imgType',
   fields: {
-    url: { type: GraphQLString },    
+    url: { type: GraphQLString },
     sourceUrl: { type: GraphQLString },
     file: { type: GraphQLString },
     width: { type: GraphQLInt },
@@ -51,7 +51,7 @@ itemType = new GraphQLObjectType({
   fields: {
     title: { type: GraphQLString },
     shortDescription: { type: shortDescriptionType },
-    mainImage: { 
+    mainImage: {
       type: webImagesType,
       resolve(source) {
         return source.images.main.web;
@@ -76,8 +76,23 @@ itemList = new GraphQLList(itemType);
 
 // Define quries data types for Filters
 
-programType = new GraphQLObjectType({
-  name: 'programType',
+programTypeFilter = new GraphQLObjectType({
+  name: 'programTypeFilter',
+  fields: {
+    id: { type: GraphQLString },
+    title: { type: GraphQLString },
+    count: { type: GraphQLInt },
+    images: {
+      type: webImagesType,
+      resolve(source) {
+        return source.images.web;
+      }
+    }
+  }
+});
+
+trainerTypeFilter = new GraphQLObjectType({
+  name: 'trainerTypeFilter',
   fields: {
     id: { type: GraphQLString },
     title: { type: GraphQLString },
@@ -95,12 +110,18 @@ filters = new GraphQLObjectType({
   name: 'filters',
   fields: {
     programTypes: {
-      type: new GraphQLList(programType),
+      type: new GraphQLList(programTypeFilter),
       resolve(source) {
         return source.programType;
       }
+    },
+    trainers: {
+      type: new GraphQLList(trainerTypeFilter),
+      resolve(source) {
+        return source.trainer;
+      }
     }
-  } 
+  }
 });
 
 exports.itemList = itemList;

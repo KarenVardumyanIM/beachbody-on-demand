@@ -2,8 +2,8 @@ const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
 const { itemList, filters } = require('./types.js');
 
 const allFiltersData = require('../program_data/filters.json');
-const allPrograms = require('../program_data/items.json');
-const items = allPrograms.items;
+const allProgramsData = require('../program_data/items.json');
+const items = allProgramsData.items;
 
 //Define the Query
 const Query = new GraphQLObjectType({
