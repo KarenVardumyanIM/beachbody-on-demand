@@ -1,6 +1,7 @@
 const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
-const { itemList } = require('./types.js');
+const { itemList, filters } = require('./types.js');
 
+const allFiltersData = require('../program_data/filters.json');
 const allPrograms = require('../program_data/items.json');
 const items = allPrograms.items;
 
@@ -37,6 +38,12 @@ const Query = new GraphQLObjectType({
             }
           })
         })(args, items);
+      }
+    },
+    allFilters: {
+      type: filters,
+      resolve() {
+        return allFiltersData;
       }
     }
   }

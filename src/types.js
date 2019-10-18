@@ -5,7 +5,8 @@ const {
   GraphQLList
 } = require('graphql');
 
-//Define quries data types
+//Define quries data types for Items
+
 shortDescriptionType = new GraphQLObjectType({
   name: 'shortDescriptionType',
   fields: {
@@ -71,4 +72,35 @@ itemType = new GraphQLObjectType({
 
 itemList = new GraphQLList(itemType);
 
+// Define quries data types for Filters
+
+programType = new GraphQLObjectType({
+  name: 'programType',
+  fields: {
+    id: { type: GraphQLString },
+    title: { type: GraphQLString },
+    count: { type: GraphQLInt },
+    images: {
+      type: webImagesType,
+      resolve(source) {
+        return source.images.web;
+      }
+    }
+  }
+});
+
+filters = new GraphQLObjectType({
+  name: 'filters',
+  fields: {
+    programTypes: {
+      type: new GraphQLList(programType),
+      resolve(source) {
+        return source.programType;
+      }
+    }
+  } 
+});
+
 exports.itemList = itemList;
+exports.filters = filters;
+
