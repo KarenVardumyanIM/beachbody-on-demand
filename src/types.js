@@ -1,8 +1,8 @@
 const {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLInt,
-  GraphQLList
+  GraphQLList,
+  GraphQLInt
 } = require('graphql');
 
 //Define common data types

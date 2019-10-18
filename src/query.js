@@ -1,4 +1,9 @@
-const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt } = require('graphql');
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLList,
+  GraphQLInt
+} = require('graphql');
 const { _itemsList, _filtersList } = require('./types.js');
 
 const allFiltersData = require('../program_data/filters.json');
