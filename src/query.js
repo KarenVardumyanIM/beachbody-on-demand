@@ -1,4 +1,4 @@
-const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
+const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt } = require('graphql');
 const { _itemsList, _filtersList } = require('./types.js');
 
 const allFiltersData = require('../program_data/filters.json');
@@ -14,7 +14,8 @@ const Query = new GraphQLObjectType({
       args: {
         workoutTypes: { type: new GraphQLList(GraphQLString) },
         trainers: { type: new GraphQLList(GraphQLString) },
-        programIntensity : { type: new GraphQLList(GraphQLString) }
+        programIntensity : { type: new GraphQLList(GraphQLString) },
+        time : { type: new GraphQLList(new GraphQLList(GraphQLInt)) }
       },
       resolve: function(source, args) {
         return (function(args, items) {
@@ -33,6 +34,13 @@ const Query = new GraphQLObjectType({
           }).filter(function(item){
             if(args.programIntensity !== undefined) {
               return args.programIntensity.includes(item.programIntensity.title);
+            } else {
+              return item;
+            }
+          }).filter(function(item){
+            if(args.time !== undefined) {
+              return args.time.some(t => !(t[0] > +item.workoutDurationMaximum.id ||
+                                           t[1] < +item.workoutDurationMinimum.id));
             } else {
               return item;
             }
