@@ -5,11 +5,7 @@
 ```
 ├── program_data --> folder containing BeachBody programs page API data
 │   ├── items.json
-│   ├── program_types.json
-│   ├── trainers.json
-│   ├── workout_duration_max.json
-│   ├── workout_duration_min.json
-│   └── workout_levels.json
+│   ├── filters.json
 ├── README.md
 ├── env-config.json --> config file for server environment mode
 └── src
