@@ -70,7 +70,7 @@ _itemType = new GraphQLObjectType({
     programDuration: {
       type: _programDurationType,
       resolve(source) {
-        return source.workoutDurationMaximum;
+        return source.programDuration;
       }
     },
     workoutDurationMaximum: {
