@@ -1,21 +1,21 @@
 {
   "name": "beachbody-on-demand",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
     "start-dev": "nodemon src/server.js",
-    "format": "prettier --write \"src/**/*.{js, jsx}\"",
-    "format:check": "prettier --list-different \"src/**/*.{js, jsx}\""
+    "format": "prettier --write \"src/**/*.js\"",
+    "format:check": "prettier --list-different \"src/**/*.js\""
   },
   "author": "",
   "dependencies": {
+    "console-log-level": "^1.4.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.9.0",
-    "graphql": "^14.5.8",
-    "console-log-level": "^1.4.1"
+    "graphql": "^14.5.8"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
