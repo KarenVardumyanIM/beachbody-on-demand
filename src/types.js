@@ -70,7 +70,7 @@ _itemType = new GraphQLObjectType({
     programDuration: {
       type: _programDurationType,
       resolve(source) {
-        return source.workoutDurationMaximum;
+        return source.programDuration;
       }
     },
     workoutDurationMaximum: {
@@ -149,16 +149,18 @@ _filtersList = new GraphQLObjectType({
   }
 });
 
-_user = new GraphQLObjectType({
-  name: '_user',
+_userType = new GraphQLObjectType({
+  name: '_userType',
   fields: {
-    username: { type: GraphQLString },
+    id: { type: GraphQLString },
+    name: { type: GraphQLString },
+    surname: { type: GraphQLString },
     password: { type: GraphQLString },
     email: { type: GraphQLString }
   }
 });
 
-exports._user = _user;
+exports._userType = _userType;
 exports._itemsList = _itemsList;
 exports._filtersList = _filtersList;
 

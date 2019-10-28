@@ -1,4 +1,4 @@
-var Users = require('./models').Users;
+const auth = require('./auth/authenticate.js');
 
 const {
   GraphQLObjectType,
@@ -6,7 +6,7 @@ const {
   GraphQLList,
   GraphQLInt
 } = require('graphql');
-const { _itemsList, _filtersList, _user } = require('./types.js');
+const { _itemsList, _filtersList, _userType } = require('./types.js');
 
 const allFiltersData = require('../program_data/filters.json');
 const allProgramsData = require('../program_data/items.json');
@@ -61,21 +61,13 @@ const Query = new GraphQLObjectType({
         return allFiltersData;
       }
     },
-    getUserByID: {
-      type: _user,
-      args: {
-        id: { type: GraphQLString }
-      },
-      resolve(source, args) {
-        return Users.findById(args.id);
+    getCurrentUser: {
+      type: _userType,
+      resolve(source, args, context) {
+        let user = auth(context);
+        return user;
       }
-    },
-    getAllUsers: {
-      type: new GraphQLList(_user),
-      resolve() {
-        return Users.find({});
-      }
-    },
+    }
   }
 });
 

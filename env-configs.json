@@ -3,14 +3,8 @@
         "port": 5000,
         "graphiql": true,
         "mongoose": {
-            "url": "mongodb://localhost/beachbody",
-            "options": {
-                "server": {
-                    "socketOptions": {
-                        "keepAlive": 1
-                    }
-                }
-            }
-        }
+            "url": "mongodb://localhost/beachbody"
+        },
+        "secret": "GkN0ni1b53GNGohV1HyRbz3XjEuUxbV0"
     }
 }
