@@ -1,14 +1,6 @@
-var graphiql;
-var logLevel;
-if (process.env.NODE_ENV === 'production') {
-    graphiql = false;
-    logLevel = 'info';
-} else if (process.env.NODE_ENV === 'development') {
-    graphiql = true;
-    logLevel = 'warn';
-}
 const configs = require('../env-configs.json');
 const express = require('express');
+const { graphiql, logLevel } = require('./configs.js');
 const log = require('console-log-level')({ level: logLevel });
 const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
