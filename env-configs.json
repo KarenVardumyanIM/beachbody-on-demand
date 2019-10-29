@@ -1,6 +1,3 @@
 {
-    "app": {
-        "port": 5000,
-        "graphiql": true
-    }
+    "port": 5000
 }
