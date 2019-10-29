@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "NODE_ENV=production node src/server.js",
-    "start-dev": "NODE_ENV=development nodemon -r ./src/server.js",
+    "start-dev": "NODE_ENV=development nodemon ./src/server.js",
     "format": "prettier --write \"src/**/*.js\"",
     "format:check": "prettier --list-different \"src/**/*.js\""
   },
