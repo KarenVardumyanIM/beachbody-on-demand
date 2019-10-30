@@ -48,11 +48,15 @@ const Query = new GraphQLObjectType({
                         .filter(function(item) {
                             if (args.time !== undefined) {
                                 return args.time.some(
-                                    time =>
-                                        !(
-                                            time[0] > +item.workoutDurationMaximum.id ||
-                                            time[1] < +item.workoutDurationMinimum.id
-                                        )
+                                    function(time) {
+                                        if (
+                                            time[0] <= +item.workoutDurationMaximum.id ||
+                                            time[1] >= +item.workoutDurationMinimum.id
+                                        ) {
+                                            return true;
+                                        }
+                                        return false;
+                                    }
                                 );
                             } else {
                                 return item;

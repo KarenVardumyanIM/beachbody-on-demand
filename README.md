@@ -10,6 +10,7 @@
 ├── env-config.json --> config file for server environment mode
 └── src
     ├── server.js --> is the JavaScript entry point
+    ├── configs.js --> setting up environment specific configs to be used in application
     ├── query.js --> queries (analog of API endpoint) of the project (/programs, /programs?programtype=, /proograms?trainer=)
     └── types.js --> data types of the queries with all required properties
 ```
