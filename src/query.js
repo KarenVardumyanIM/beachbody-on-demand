@@ -1,4 +1,9 @@
-const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt } = require('graphql');
+const {
+    GraphQLObjectType,
+    GraphQLString,
+    GraphQLList,
+    GraphQLInt,
+} = require('graphql');
 const { _itemsList, _filtersList } = require('./types.js');
 
 const allFiltersData = require('../program_data/filters.json');
@@ -40,24 +45,26 @@ const Query = new GraphQLObjectType({
                         })
                         .filter(function(item) {
                             if (args.programIntensity !== undefined) {
-                                return args.programIntensity.includes(item.programIntensity.title);
+                                return args.programIntensity.includes(
+                                    item.programIntensity.title
+                                );
                             } else {
                                 return item;
                             }
                         })
                         .filter(function(item) {
                             if (args.time !== undefined) {
-                                return args.time.some(
-                                    function(time) {
-                                        if (
-                                            time[0] <= +item.workoutDurationMaximum.id ||
-                                            time[1] >= +item.workoutDurationMinimum.id
-                                        ) {
-                                            return true;
-                                        }
-                                        return false;
+                                return args.time.some(function(time) {
+                                    if (
+                                        time[0] <=
+                                            +item.workoutDurationMaximum.id ||
+                                        time[1] >=
+                                            +item.workoutDurationMinimum.id
+                                    ) {
+                                        return true;
                                     }
-                                );
+                                    return false;
+                                });
                             } else {
                                 return item;
                             }
