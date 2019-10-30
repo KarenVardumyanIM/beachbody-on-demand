@@ -1,7 +1,7 @@
-const configs = require('../env-configs.json');
+const envConfigs = require('../env-configs.json');
 const express = require('express');
-const { graphiql, logLevel } = require('./configs.js');
-const log = require('console-log-level')({ level: logLevel });
+const configs = require('./configs.js');
+const log = require('console-log-level')({ level: configs.logLevel });
 const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
 const { Query } = require('./query.js');
@@ -21,9 +21,9 @@ app.use(
     '/',
     graphqlHTTP({
         schema: schema,
-        graphiql: graphiql,
+        graphiql: configs.graphiql,
     })
 );
 
-app.listen(configs.port);
-log.info(`Server Running at localhost:${configs.port}`);
+app.listen(envConfigs.port);
+log.info(`Server Running at localhost:${envConfigs.port}`);
