@@ -8,6 +8,7 @@
 │   ├── filters.json
 ├── README.md
 ├── env-config.json --> config file for server environment mode
+├── .prettierrc.json --> configuration file for opinionated code formatter
 └── src
     ├── server.js --> is the JavaScript entry point
     ├── configs.js --> setting up environment specific configurations to be used in the application
