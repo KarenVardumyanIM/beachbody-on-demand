@@ -5,7 +5,7 @@ const allFiltersData = require('../program_data/filters.json');
 const allProgramsData = require('../program_data/items.json');
 const items = allProgramsData.items;
 
-//Define the Query
+// Define the Query
 const Query = new GraphQLObjectType({
     name: 'Query',
     fields: {

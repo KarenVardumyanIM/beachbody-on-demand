@@ -1,6 +1,6 @@
 const { GraphQLObjectType, GraphQLString, GraphQLList, GraphQLInt } = require('graphql');
 
-//Define common data types
+// Define common data types
 
 _imgType = new GraphQLObjectType({
     name: '_imgType',
@@ -23,7 +23,7 @@ _webImagesType = new GraphQLObjectType({
     },
 });
 
-//Define quries data types for Items
+// Define quries data types for Items
 
 _shortDescriptionType = new GraphQLObjectType({
     name: '_shortDescriptionType',
