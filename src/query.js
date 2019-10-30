@@ -54,16 +54,14 @@ const Query = new GraphQLObjectType({
                         })
                         .filter(function(item) {
                             if (args.time !== undefined) {
-                                return args.time.some(function(time) {
+                                return args.time.some(function(t) {
                                     if (
-                                        time[0] <=
-                                            +item.workoutDurationMaximum.id ||
-                                        time[1] >=
-                                            +item.workoutDurationMinimum.id
+                                        t[0] > item.workoutDurationMaximum.id ||
+                                        t[1] < item.workoutDurationMinimum.id
                                     ) {
-                                        return true;
+                                        return false;
                                     }
-                                    return false;
+                                    return true;
                                 });
                             } else {
                                 return item;
