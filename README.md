@@ -20,6 +20,9 @@
 
 In the project directory, you can run the following scripts:
 
+#### `npm install` or `npm i`
+Installs packages on which applications depend.
+
 ### Production mode
 
 #### `npm run start`
