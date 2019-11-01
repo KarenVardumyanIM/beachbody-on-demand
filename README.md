@@ -20,10 +20,10 @@
 
 In the project directory, you can run the following scripts:
 
-#### `npm install` or `npm i`
-Installs packages on which applications depend.
-
 ### Production mode
+
+#### `npm ci``
+Looks package.json to install all the dependencies with the exact version.
 
 #### `npm run start`
 
@@ -31,6 +31,9 @@ Runs the server in the production mode.<br>
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
 ### Development mode
+
+#### `npm install` or `npm i`
+Installs all the dependencies and updates package-lock.json when there are changes such as when installed a new dependency.
 
 #### `npm run start-dev`
 
