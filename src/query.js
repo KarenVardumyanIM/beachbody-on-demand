@@ -1,3 +1,8 @@
+const jwt = require('jwt-simple');
+const auth = require('./auth.js');
+const Users = require('./models').Users;
+const envConfigs = require('../env-configs.json');
+
 const {
     GraphQLObjectType,
     GraphQLString,
@@ -76,7 +81,88 @@ const Query = new GraphQLObjectType({
                 return allFiltersData;
             },
         },
+        getCurrentUser: {
+            type: _userType,
+            resolve(source, args, context) {
+                let user = auth(context);
+                return user;
+            },
+        },
+        singin: {
+            type: GraphQLString,
+            args: {
+                email: { type: GraphQLString },
+                password: { type: GraphQLString },
+            },
+            resolve(source, args, context) {
+                return Users.findOne({ email: args.email }).then(user => {
+                    if (user) {
+                        try {
+                            if (user.verifyPassword(args.password)) {
+                                const payload = { currentUser: user.id };
+                                const token = jwt.encode(
+                                    payload,
+                                    envConfigs.secret
+                                );
+                                return token;
+                            } else {
+                                context.response.status(400);
+                                return 'Incorrect password.';
+                            }
+                        } catch {
+                            context.response.status(500);
+                            return 'Please log in again.';
+                        }
+                    } else {
+                        context.response.status(400);
+                        return 'Email address does not exist.';
+                    }
+                });
+            },
+        },
     },
 });
 
+const Mutation = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        singup: {
+            type: GraphQLString,
+            args: {
+                name: { type: GraphQLString },
+                surname: { type: GraphQLString },
+                email: { type: GraphQLString },
+                password: { type: GraphQLString },
+            },
+            resolve(source, args, context) {
+                const newUser = new Users({
+                    name: args.name,
+                    surname: args.surname,
+                    password: args.password,
+                    email: args.email,
+                });
+                return Users.findOne({ email: args.email }).then(user => {
+                    if (user) {
+                        context.response.status(400);
+                        return 'This email address is already used in the account.';
+                    } else {
+                        return newUser
+                            .save()
+                            .then(function(user) {
+                                if (user) {
+                                    return `Welcome ${user.name}`;
+                                }
+                            })
+                            .catch(function(err) {
+                                context.resolve.status(400);
+                                return 'Registration failed.';
+                            });
+                    }
+                });
+            },
+        },
+    },
+});
+
+exports.Mutation = Mutation;
 exports.Query = Query;
