@@ -22,7 +22,7 @@ In the project directory, you can run the following scripts:
 
 ### Production mode
 
-#### `npm ci``
+#### `npm ci`
 Looks package.json to install all the dependencies with the exact version.
 
 #### `npm run start`
