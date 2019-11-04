@@ -4,7 +4,7 @@ const configs = require('./configs.js');
 const log = require('console-log-level')({ level: configs.logLevel });
 const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
-const { Query } = require('./query.js');
+const { Query, Mutation } = require('./query.js');
 const cors = require('cors');
 
 const app = express();
@@ -12,6 +12,7 @@ const app = express();
 // Define the GraphiQL Schema
 const schema = new GraphQLSchema({
     query: Query,
+    mutation: Mutation,
 });
 
 app.use(cors());
@@ -19,10 +20,11 @@ app.use(cors());
 // Setup the GraphQL server
 app.use(
     '/',
-    graphqlHTTP({
+    graphqlHTTP((req, res) => ({
         schema: schema,
         graphiql: configs.graphiql,
-    })
+        context: { request: req, response: res },
+    }))
 );
 
 app.listen(envConfigs.port);

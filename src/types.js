@@ -149,5 +149,17 @@ _filtersList = new GraphQLObjectType({
     },
 });
 
+_userType = new GraphQLObjectType({
+    name: '_userType',
+    fields: {
+        id: { type: GraphQLString },
+        name: { type: GraphQLString },
+        surname: { type: GraphQLString },
+        password: { type: GraphQLString },
+        email: { type: GraphQLString },
+    },
+});
+
+exports._userType = _userType;
 exports._itemsList = _itemsList;
 exports._filtersList = _filtersList;
