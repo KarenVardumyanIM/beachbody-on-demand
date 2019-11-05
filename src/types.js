@@ -155,7 +155,6 @@ _userType = new GraphQLObjectType({
         id: { type: GraphQLString },
         name: { type: GraphQLString },
         surname: { type: GraphQLString },
-        password: { type: GraphQLString },
         email: { type: GraphQLString },
     },
 });
