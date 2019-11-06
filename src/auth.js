@@ -14,8 +14,8 @@ module.exports = function auth(context) {
             envConfigs.secret
         );
         return payload.currentUserID;
-    } catch (e) {
-        log.info(e.message);
+    } catch (error) {
+        log.info(error);
         context.response.status(400).send('Invalid token.');
         return null;
     }

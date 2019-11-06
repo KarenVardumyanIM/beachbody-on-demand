@@ -117,7 +117,7 @@ const Query = new GraphQLObjectType({
                             return 'Incorrect password.';
                         }
                     } catch (error) {
-                        log.info(error.message);
+                        log.info(error);
                         context.response.status(500);
                         return 'Please log in again.';
                     }
