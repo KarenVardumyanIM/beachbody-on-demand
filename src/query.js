@@ -3,6 +3,7 @@ const auth = require('./auth.js');
 const Users = require('./models').Users;
 const envConfigs = require('../env-configs.json');
 const configs = require('./configs.js');
+const ValidationError = require('./mongoose').Error.ValidationError;
 const log = require('console-log-level')({ level: configs.logLevel });
 
 const {
@@ -158,8 +159,13 @@ const Mutation = new GraphQLObjectType({
                         return token;
                     } catch (e) {
                         log.info(e);
-                        context.response.status(400);
-                        return 'Registration failed.';
+                        if (e instanceof ValidationError) {
+                            context.response.status(400);
+                            return e.message;
+                        } else {
+                            context.response.status(500);
+                            return 'Please try later';
+                        }
                     }
                 }
             },

@@ -20,7 +20,15 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
+        minlength: 3,
+        maxlength: 256,
+        validate: {
+            validator: function(value) {
+                return /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(value);
+            },
+            message: props => `${props.value} is not a valid email`,
+        },
+        required: [true, 'User email is required'],
         unique: true,
     },
 });
@@ -35,6 +43,19 @@ userSchema.methods.encryptPassword = function(password) {
 userSchema
     .virtual('password')
     .set(function(password) {
+        const validationError = new mongoose.Error.ValidationError();
+        if (!password) {
+            validationError.message =
+                'users validation failed: password: User password is required';
+            throw validationError;
+        } else {
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                validationError.message =
+                    'users validation failed: password: Password should contain minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:';
+                throw validationError;
+            }
+        }
         this._plainPassword = password;
         this.salt = Math.random() + '';
         this.hashedPassword = this.encryptPassword(password);
