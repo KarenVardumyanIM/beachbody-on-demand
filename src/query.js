@@ -116,8 +116,8 @@ const Query = new GraphQLObjectType({
                             context.response.status(400);
                             return 'Incorrect password.';
                         }
-                    } catch (e) {
-                        log.info(e.message);
+                    } catch (error) {
+                        log.info(error.message);
                         context.response.status(500);
                         return 'Please log in again.';
                     }
@@ -157,11 +157,11 @@ const Mutation = new GraphQLObjectType({
                         const payload = { currentUserID: newUser.id };
                         const token = jwt.encode(payload, envConfigs.secret);
                         return token;
-                    } catch (e) {
-                        log.info(e);
-                        if (e instanceof ValidationError) {
+                    } catch (error) {
+                        log.info(error);
+                        if (error instanceof ValidationError) {
                             context.response.status(400);
-                            return e.message;
+                            return error.message;
                         } else {
                             context.response.status(500);
                             return 'Please try later';
