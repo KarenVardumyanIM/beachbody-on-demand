@@ -100,31 +100,30 @@ const Query = new GraphQLObjectType({
                 email: { type: GraphQLString },
                 password: { type: GraphQLString },
             },
-            resolve(source, args, context) {
-                return Users.findOne({ email: args.email }).then(user => {
-                    if (user) {
-                        try {
-                            if (user.verifyPassword(args.password)) {
-                                const payload = { currentUserID: user.id };
-                                const token = jwt.encode(
-                                    payload,
-                                    envConfigs.secret
-                                );
-                                return token;
-                            } else {
-                                context.response.status(400);
-                                return 'Incorrect password.';
-                            }
-                        } catch (e) {
-                            log.info(e.message);
-                            context.response.status(500);
-                            return 'Please log in again.';
+            resolve: async function(source, args, context) {
+                const user = await Users.findOne({ email: args.email });
+                if (user) {
+                    try {
+                        if (user.verifyPassword(args.password)) {
+                            const payload = { currentUserID: user.id };
+                            const token = jwt.encode(
+                                payload,
+                                envConfigs.secret
+                            );
+                            return token;
+                        } else {
+                            context.response.status(400);
+                            return 'Incorrect password.';
                         }
-                    } else {
-                        context.response.status(400);
-                        return 'Email address does not exist.';
+                    } catch (e) {
+                        log.info(e.message);
+                        context.response.status(500);
+                        return 'Please log in again.';
                     }
-                });
+                } else {
+                    context.response.status(400);
+                    return 'Email address does not exist.';
+                }
             },
         },
     },
@@ -141,37 +140,28 @@ const Mutation = new GraphQLObjectType({
                 email: { type: GraphQLString },
                 password: { type: GraphQLString },
             },
-            resolve(source, args, context) {
-                const newUser = new Users({
-                    name: args.name,
-                    surname: args.surname,
-                    password: args.password,
-                    email: args.email,
-                });
-                return Users.findOne({ email: args.email }).then(user => {
-                    if (user) {
+            resolve: async function(source, args, context) {
+                if (await Users.findOne({ email: args.email })) {
+                    context.response.status(400);
+                    return 'This email address is already used in the account.';
+                } else {
+                    try {
+                        const user = new Users({
+                            name: args.name,
+                            surname: args.surname,
+                            password: args.password,
+                            email: args.email,
+                        });
+                        const newUser = await user.save();
+                        const payload = { currentUserID: newUser.id };
+                        const token = jwt.encode(payload, envConfigs.secret);
+                        return token;
+                    } catch (e) {
+                        log.info(e);
                         context.response.status(400);
-                        return 'This email address is already used in the account.';
-                    } else {
-                        return newUser
-                            .save()
-                            .then(function(user) {
-                                if (user) {
-                                    const payload = { currentUserID: user.id };
-                                    const token = jwt.encode(
-                                        payload,
-                                        envConfigs.secret
-                                    );
-                                    return token;
-                                }
-                            })
-                            .catch(function(err) {
-                                log.info(err);
-                                context.response.status(400);
-                                return 'Registration failed.';
-                            });
+                        return 'Registration failed.';
                     }
-                });
+                }
             },
         },
     },
