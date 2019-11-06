@@ -1,5 +1,4 @@
 const jwt = require('jwt-simple');
-const Users = require('./models').Users;
 const envConfigs = require('../env-configs.json');
 const configs = require('./configs.js');
 const log = require('console-log-level')({ level: configs.logLevel });
