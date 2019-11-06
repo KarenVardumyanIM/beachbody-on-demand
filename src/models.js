@@ -4,11 +4,29 @@ const mongoose = require('./mongoose');
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        minlength: [2, 'min length should be 2'],
+        maxlength: [20, 'max length should be 20'],
+        validate: {
+            validator: function(value) {
+                return /^[A-Za-z]+$/.test(value);
+            },
+            message: props =>
+                `${props.value} is not a valid name, should contain only letters.`,
+        },
+        required: [true, 'User name is required'],
     },
     surname: {
         type: String,
-        required: true,
+        minlength: [2, 'min length should be 2'],
+        maxlength: [20, 'max length should be 20'],
+        validate: {
+            validator: function(value) {
+                return /^[A-Za-z]+$/.test(value);
+            },
+            message: props =>
+                `${props.value} is not a valid surname, should contain only letters.`,
+        },
+        required: [true, 'User surname is required'],
     },
     hashedPassword: {
         type: String,
