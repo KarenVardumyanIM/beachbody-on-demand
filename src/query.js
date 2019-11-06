@@ -87,7 +87,7 @@ const Query = new GraphQLObjectType({
             type: _userType,
             resolve(source, args, context) {
                 const currentUserID = auth(context);
-                if(currentUserID) {
+                if (currentUserID) {
                     return Users.findById(currentUserID);
                 } else {
                     return null;
@@ -157,7 +157,12 @@ const Mutation = new GraphQLObjectType({
                             .save()
                             .then(function(user) {
                                 if (user) {
-                                    return `Welcome ${user.name}`;
+                                    const payload = { currentUserID: user.id };
+                                    const token = jwt.encode(
+                                        payload,
+                                        envConfigs.secret
+                                    );
+                                    return token;
                                 }
                             })
                             .catch(function(err) {
