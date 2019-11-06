@@ -14,7 +14,7 @@ module.exports = function auth(context) {
             context.request.headers.accesstoken,
             envConfigs.secret
         );
-        return Users.findById(payload.currentUser);
+        return payload.currentUserID;
     } catch (e) {
         log.info(e.message);
         context.response.status(400).send('Invalid token.');

@@ -86,7 +86,12 @@ const Query = new GraphQLObjectType({
         getCurrentUser: {
             type: _userType,
             resolve(source, args, context) {
-                return auth(context);
+                const currentUserID = auth(context);
+                if(currentUserID) {
+                    return Users.findById(currentUserID);
+                } else {
+                    return null;
+                }
             },
         },
         singin: {
@@ -100,7 +105,7 @@ const Query = new GraphQLObjectType({
                     if (user) {
                         try {
                             if (user.verifyPassword(args.password)) {
-                                const payload = { currentUser: user.id };
+                                const payload = { currentUserID: user.id };
                                 const token = jwt.encode(
                                     payload,
                                     envConfigs.secret
