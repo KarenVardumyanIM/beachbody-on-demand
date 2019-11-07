@@ -84,7 +84,7 @@ const Query = new GraphQLObjectType({
                 return allFiltersData;
             },
         },
-        getCurrentUser: {
+        currentUser: {
             type: _userType,
             resolve(source, args, context) {
                 const currentUserID = auth(context);
