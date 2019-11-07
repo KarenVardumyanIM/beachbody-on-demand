@@ -1,6 +1,6 @@
 const jwt = require('jwt-simple');
-const envConfigs = require('../env-configs.json');
 const configs = require('./configs.js');
+const envConfigs = require('../env-configs.json');
 const log = require('console-log-level')({ level: configs.logLevel });
 
 module.exports = function auth(context) {

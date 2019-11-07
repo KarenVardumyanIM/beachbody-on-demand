@@ -1,11 +1,11 @@
-const envConfigs = require('../env-configs.json');
+const cors = require('cors');
 const express = require('express');
 const configs = require('./configs.js');
+const envConfigs = require('../env-configs.json');
 const log = require('console-log-level')({ level: configs.logLevel });
-const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
+const graphqlHTTP = require('express-graphql');
 const { Query, Mutation } = require('./query.js');
-const cors = require('cors');
 
 const app = express();
 
