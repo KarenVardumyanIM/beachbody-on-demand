@@ -173,13 +173,13 @@ const Mutation = new GraphQLObjectType({
         changePassword: {
             type: GraphQLString,
             args: {
-                email: { type: GraphQLString },
                 password: { type: GraphQLString },
                 newPassword: { type: GraphQLString },
             },
             resolve: async function(source, args, context) {
-                const user = await Users.findOne({ email: args.email });
-                if (user) {
+                const currentUserID = auth(context);
+                if (currentUserID) {
+                    const user = await Users.findById(currentUserID);
                     if (user.verifyPassword(args.password)) {
                         try {
                             await user.set('password', args.newPassword);
@@ -200,8 +200,7 @@ const Mutation = new GraphQLObjectType({
                         return 'Incorrect password.';
                     }
                 } else {
-                    context.response.status(400);
-                    return 'Email address does not exist.';
+                    return null;
                 }
             },
         },
