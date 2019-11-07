@@ -16,7 +16,7 @@ module.exports = function auth(context) {
         return payload.currentUserID;
     } catch (error) {
         log.info(error);
-        context.response.status(401).end('Invalid token.');
+        context.response.status(401).send('Invalid token.');
         return null;
     }
 };
