@@ -170,6 +170,41 @@ const Mutation = new GraphQLObjectType({
                 }
             },
         },
+        changePassword: {
+            type: GraphQLString,
+            args: {
+                email: { type: GraphQLString },
+                password: { type: GraphQLString },
+                newPassword: { type: GraphQLString },
+            },
+            resolve: async function(source, args, context) {
+                const user = await Users.findOne({ email: args.email });
+                if (user) {
+                    if (user.verifyPassword(args.password)) {
+                        try {
+                            await user.set('password', args.newPassword);
+                            await user.save();
+                            return 'Password has been changed';
+                        } catch (error) {
+                            log.info(error);
+                            if (error instanceof ValidationError) {
+                                context.response.status(400);
+                                return error.message;
+                            } else {
+                                context.response.status(500);
+                                return 'Please try later';
+                            }
+                        }
+                    } else {
+                        context.response.status(400);
+                        return 'Incorrect password.';
+                    }
+                } else {
+                    context.response.status(400);
+                    return 'Email address does not exist.';
+                }
+            },
+        },
     },
 });
 
