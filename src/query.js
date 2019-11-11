@@ -3,8 +3,9 @@ const auth = require('./auth.js');
 const Users = require('./models').Users;
 const configs = require('./configs.js');
 const envConfigs = require('../env-configs.json');
-const ValidationError = require('./mongoose').Error.ValidationError;
 const log = require('console-log-level')({ level: configs.logLevel });
+const bcrypt = require('bcrypt');
+const SALTROUNDS = 10;
 
 const {
     GraphQLObjectType,
@@ -105,7 +106,9 @@ const Query = new GraphQLObjectType({
                 const user = await Users.findOne({ email: args.email });
                 if (user) {
                     try {
-                        if (user.verifyPassword(args.password)) {
+                        if (
+                            await bcrypt.compare(args.password, user.password)
+                        ) {
                             const payload = { currentUserID: user.id };
                             const token = jwt.encode(
                                 payload,
@@ -113,7 +116,7 @@ const Query = new GraphQLObjectType({
                             );
                             return token;
                         } else {
-                            context.response.status(400);
+                            context.response.status(401);
                             return 'Incorrect password.';
                         }
                     } catch (error) {
@@ -122,7 +125,7 @@ const Query = new GraphQLObjectType({
                         return 'Please log in again.';
                     }
                 } else {
-                    context.response.status(400);
+                    context.response.status(404);
                     return 'Email address does not exist.';
                 }
             },
@@ -142,65 +145,40 @@ const Mutation = new GraphQLObjectType({
                 password: { type: GraphQLString },
             },
             resolve: async function(source, args, context) {
-                if (await Users.findOne({ email: args.email })) {
+                const user = new Users({
+                    name: args.name,
+                    surname: args.surname,
+                    password: args.password,
+                    email: args.email,
+                });
+                const error = user.validateSync();
+                if (error) {
+                    log.info(error);
                     context.response.status(400);
-                    return 'This email address is already used in the account.';
-                } else {
-                    try {
-                        const user = new Users({
-                            name: args.name,
-                            surname: args.surname,
-                            password: args.password,
-                            email: args.email,
-                        });
-                        const newUser = await user.save();
-                        const payload = { currentUserID: newUser.id };
-                        const token = jwt.encode(payload, envConfigs.secret);
-                        return token;
-                    } catch (error) {
-                        log.info(error);
-                        if (error instanceof ValidationError) {
-                            context.response.status(400);
-                            return error.message;
-                        } else {
-                            context.response.status(500);
-                            return 'Please try later';
-                        }
-                    }
+                    return error.message;
                 }
-            },
-        },
-        changePassword: {
-            type: GraphQLString,
-            args: {
-                password: { type: GraphQLString },
-                newPassword: { type: GraphQLString },
-            },
-            resolve: async function(source, args, context) {
-                const currentUserID = auth(context);
-                if (currentUserID) {
-                    const user = await Users.findById(currentUserID);
-                    if (user.verifyPassword(args.password)) {
-                        try {
-                            await user.set('password', args.newPassword);
-                            await user.save();
-                            return 'Password has been changed';
-                        } catch (error) {
-                            log.info(error);
-                            if (error instanceof ValidationError) {
-                                context.response.status(400);
-                                return error.message;
-                            } else {
-                                context.response.status(500);
-                                return 'Please try later';
-                            }
-                        }
-                    } else {
-                        context.response.status(400);
-                        return 'Incorrect password.';
+                try {
+                    const hashedPassword = await bcrypt.hash(
+                        args.password,
+                        SALTROUNDS
+                    );
+                    const newUser = await Users.collection.insertOne({
+                        name: args.name,
+                        surname: args.surname,
+                        email: args.email,
+                        password: hashedPassword,
+                    });
+                    const payload = { currentUserID: newUser.insertedId };
+                    const token = jwt.encode(payload, envConfigs.secret);
+                    return token;
+                } catch (error) {
+                    log.info(error);
+                    if (error.code === 11000) {
+                        context.response.status(409);
+                        return 'This email address is already used by another user.';
                     }
-                } else {
-                    return null;
+                    context.response.status(500);
+                    return 'Please try later';
                 }
             },
         },
